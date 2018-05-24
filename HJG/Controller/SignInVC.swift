@@ -21,6 +21,7 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSignUp()
         userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
         // Do any additional setup after loading the view.
     }
