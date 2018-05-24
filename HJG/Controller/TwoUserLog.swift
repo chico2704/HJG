@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FSCalendar
 import FirebaseDatabase
+import SVProgressHUD
 
 class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
@@ -58,6 +59,13 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
         
         goalRef = Database.database().reference()
         
+        let transBackgroundView = UIView()
+        transBackgroundView.frame = self.view.frame
+        transBackgroundView.backgroundColor = UIColor.gray
+        transBackgroundView.alpha = 0.6
+        self.view.addSubview(transBackgroundView)
+        
+        SVProgressHUD.show()
         if let uid = uid {
             goalRef.child(uid).queryOrdered(byChild: "date").observe(DataEventType.value) { (snapshot) in
                 self.goals = []
@@ -69,6 +77,9 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
                         }
                     }
                 }
+                SVProgressHUD.dismiss()
+                transBackgroundView.removeFromSuperview()
+                
                 self.calendar.select(Date())
                 self.calendar.reloadData()
                 self.showTodayGoal()
