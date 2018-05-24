@@ -86,8 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				1C20C14220B6F87E0065C498 /* SDMiSaeng.ttf */,
-				1C20C14420B6F87E0065C498 /* UIButtonX.swift */,
 				1C20C14320B6F87E0065C498 /* UIViewX.swift */,
+				1C20C14420B6F87E0065C498 /* UIButtonX.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

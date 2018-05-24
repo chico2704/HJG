@@ -34,12 +34,17 @@ class SignInVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func signInBtnTapped(_ sender: Any) {
+    }
+    
     @IBAction func createNewAccountBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let signUpNVC = storyboard.instantiateViewController(withIdentifier: "SignUpNVC")
         present(signUpNVC, animated: true, completion: nil)
     }
+    
+
     
     
 }
