@@ -6,10 +6,11 @@ target 'HJG' do
   use_frameworks!
 
   # Pods for HJG
-	pod 'Firebase/Core'
-
-
-
-
-
+  
+   pod 'Firebase/Auth'
+   pod 'GoogleSignIn'
+   pod 'FirebaseUI/Auth'
+   pod 'FirebaseUI/Google'
+   pod 'Firebase/Core'
+   pod 'Firebase/Firestore'
 end

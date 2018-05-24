@@ -56,6 +56,9 @@
                                             <constraint firstAttribute="width" constant="284" id="1M4-HJ-llZ"/>
                                             <constraint firstAttribute="height" constant="50" id="8cb-GW-Odw"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="googleSignInBtnTapped:" destination="cEO-ax-CGW" eventType="valueChanged" id="bmH-jK-VKh"/>
+                                        </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xc1-jc-DIE" customClass="UIButtonX" customModule="HJG" customModuleProvider="target">
                                         <rect key="frame" x="45" y="448" width="284" height="50"/>
@@ -178,6 +181,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTF" destination="KPz-45-drI" id="Qdb-ZP-m2e"/>
+                        <outlet property="googleSignInBtn" destination="RWq-Qy-38l" id="6YU-jg-pNO"/>
                         <outlet property="pwdTF" destination="nfC-AW-QKy" id="NJa-c8-dmZ"/>
                     </connections>
                 </viewController>

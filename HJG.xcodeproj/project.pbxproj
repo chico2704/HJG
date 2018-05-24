@@ -18,6 +18,8 @@
 		1C20C14620B6F87E0065C498 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14320B6F87E0065C498 /* UIViewX.swift */; };
 		1C20C14720B6F87E0065C498 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14420B6F87E0065C498 /* UIButtonX.swift */; };
 		1C20C14920B70B600065C498 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C14820B70B600065C498 /* GoogleService-Info.plist */; };
+		1C20C14B20B712100065C498 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14A20B712100065C498 /* AlertVC.swift */; };
+		1C20C14D20B712CF0065C498 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14C20B712CF0065C498 /* Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		1C20C14320B6F87E0065C498 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		1C20C14420B6F87E0065C498 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		1C20C14820B70B600065C498 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1C20C14A20B712100065C498 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		1C20C14C20B712CF0065C498 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		C576C6ED499B7FC443871BB6 /* Pods-HJG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.release.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.release.xcconfig"; sourceTree = "<group>"; };
 		C6D9392F0C1C3B0144260A7F /* Pods-HJG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D68A57EE5D4C73E8FDA5B3 /* Pods_HJG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HJG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +84,7 @@
 		1C20C12920B6F5980065C498 /* HJG */ = {
 			isa = PBXGroup;
 			children = (
+				1C20C14C20B712CF0065C498 /* Common.swift */,
 				1C20C13C20B6F7B90065C498 /* Controller */,
 				1C20C14120B6F86B0065C498 /* Resources */,
 				1C20C12E20B6F5980065C498 /* Main.storyboard */,
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				1C20C12A20B6F5980065C498 /* AppDelegate.swift */,
+				1C20C14A20B712100065C498 /* AlertVC.swift */,
 				1C20C13D20B6F7D90065C498 /* SignInVC.swift */,
 				1C20C13F20B6F7F00065C498 /* SignUpVC.swift */,
 			);
@@ -131,6 +137,7 @@
 				1C20C12420B6F5980065C498 /* Frameworks */,
 				1C20C12520B6F5980065C498 /* Resources */,
 				9DE45E237107DEA90D57968C /* [CP] Embed Pods Frameworks */,
+				D4EDE491670FCACC9C66981A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -215,17 +222,57 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4EDE491670FCACC9C66981A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -238,8 +285,10 @@
 				1C20C13E20B6F7D90065C498 /* SignInVC.swift in Sources */,
 				1C20C14720B6F87E0065C498 /* UIButtonX.swift in Sources */,
 				1C20C14620B6F87E0065C498 /* UIViewX.swift in Sources */,
+				1C20C14B20B712100065C498 /* AlertVC.swift in Sources */,
 				1C20C14020B6F7F00065C498 /* SignUpVC.swift in Sources */,
 				1C20C12B20B6F5980065C498 /* AppDelegate.swift in Sources */,
+				1C20C14D20B712CF0065C498 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +436,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -403,7 +455,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
