@@ -198,7 +198,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" alpha="0.89999997615814209" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLf-ZH-jvT" customClass="UIButtonX" customModule="HJG" customModuleProvider="target">
-                                <rect key="frame" x="45" y="366" width="284" height="50"/>
+                                <rect key="frame" x="45" y="395" width="284" height="50"/>
                                 <color key="backgroundColor" red="0.61176470589999998" green="0.3921568627" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="284" id="PHr-NK-WL7"/>
@@ -212,9 +212,12 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signUpWithNewAccountBtnTapped:" destination="ULS-uZ-m5u" eventType="touchUpInside" id="rfG-nl-CYZ"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-ZK-soV" customClass="UIViewX" customModule="HJG" customModuleProvider="target">
-                                <rect key="frame" x="45" y="250" width="284" height="50"/>
+                                <rect key="frame" x="45" y="279" width="284" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uT3-wv-6bA">
                                         <rect key="frame" x="8" y="10" width="268" height="30"/>
@@ -242,7 +245,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I0L-Ea-vYF" customClass="UIViewX" customModule="HJG" customModuleProvider="target">
-                                <rect key="frame" x="45" y="308" width="284" height="50"/>
+                                <rect key="frame" x="45" y="337" width="284" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Nn6-RS-LT3">
                                         <rect key="frame" x="8" y="10" width="268" height="30"/>
@@ -269,13 +272,43 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1W-6P-M2w" customClass="UIViewX" customModule="HJG" customModuleProvider="target">
+                                <rect key="frame" x="45" y="221" width="284" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="user name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="pRg-zx-c7q">
+                                        <rect key="frame" x="8" y="10" width="268" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KE4-6i-3IQ"/>
+                                    <constraint firstAttribute="width" constant="284" id="qc8-bl-Ab1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I0L-Ea-vYF" firstAttribute="top" secondItem="I5N-ZK-soV" secondAttribute="bottom" constant="8" id="Bka-Ji-Q5o"/>
                             <constraint firstItem="KLf-ZH-jvT" firstAttribute="centerX" secondItem="Qwx-mw-BVO" secondAttribute="centerX" id="DWD-bA-w9w"/>
-                            <constraint firstItem="I5N-ZK-soV" firstAttribute="top" secondItem="r52-3C-ebp" secondAttribute="top" constant="186" id="IDu-aJ-lfb"/>
+                            <constraint firstItem="I1W-6P-M2w" firstAttribute="centerX" secondItem="Qwx-mw-BVO" secondAttribute="centerX" id="dow-R6-6DE"/>
                             <constraint firstItem="I5N-ZK-soV" firstAttribute="centerX" secondItem="Qwx-mw-BVO" secondAttribute="centerX" id="mIz-p5-kNg"/>
+                            <constraint firstItem="I5N-ZK-soV" firstAttribute="top" secondItem="I1W-6P-M2w" secondAttribute="bottom" constant="8" id="n9C-rx-IOE"/>
+                            <constraint firstItem="I1W-6P-M2w" firstAttribute="top" secondItem="r52-3C-ebp" secondAttribute="top" constant="157" id="nkA-7R-lxr"/>
                             <constraint firstItem="I0L-Ea-vYF" firstAttribute="centerX" secondItem="Qwx-mw-BVO" secondAttribute="centerX" id="sTN-b9-IDy"/>
                             <constraint firstItem="KLf-ZH-jvT" firstAttribute="top" secondItem="I0L-Ea-vYF" secondAttribute="bottom" constant="8" id="vAh-i0-UFR"/>
                         </constraints>
@@ -290,6 +323,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="emailTF" destination="uT3-wv-6bA" id="wjr-lr-tEw"/>
+                        <outlet property="pwdTF" destination="Nn6-RS-LT3" id="dyu-yS-FTo"/>
+                        <outlet property="usernameTF" destination="pRg-zx-c7q" id="lZf-Fy-3ns"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sG-zA-vhB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
