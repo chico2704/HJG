@@ -94,19 +94,15 @@ extension OneDesk {
                         let textField = alertVC.textFields![0]
                         if self.goalLbl.text != "" {
                             
-                            let date = Date()
-                            let formatter = DateFormatter()
-                            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                            let strDate = formatter.string(from: date)
+                            let date = String(describing: Date())
                             
                             if let uid = Auth.auth().currentUser?.uid,
                             let title = self.goalLbl.text,
                             let content = textField.text {
 
-                            
                                 let dataToSave: [String : Any] = [ "title"      : title ,
                                                                    "content"    : content,
-                                                                   "date"       : strDate ]
+                                                                   "date"       : date ]
                             
                                 self.goalRef.child(uid).childByAutoId().setValue(dataToSave) 
                             }

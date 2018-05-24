@@ -1,5 +1,5 @@
 //
-//  TwoLogListTableViewController.swift
+//  TwoLogListTVC.swift
 //  HanJul
 //
 //  Created by Suzy Park on 2018. 5. 8..
@@ -7,18 +7,40 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
-class TwoLogListTableViewController: UITableViewController {
+class TwoLogListTVC: UITableViewController {
     
-    var goalList = [Goal]()
+    var goals = [Goal]()
+    
+    var goalRef: DatabaseReference!
+    let uid = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableViewAutomaticDimension
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
+        
+        goalRef = Database.database().reference()
+        
+        if let uid = uid {
+            goalRef.child(uid).queryOrdered(byChild: "date").observe(DataEventType.value) { (snapshot) in
+            
+                self.goals = []
+            
+                if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                    for snap in snapshot {
+                        if let goalDict = snap.value as? [String : AnyObject] {
+                            let goal = Goal(postID: snap.key, dic: goalDict)
+                         self.goals.insert(goal, at: 0)
+                        }
+                    }
+                }
+                print(self.goals)
+                self.tableView.reloadData()
+            }
+            tableView.estimatedRowHeight = 80
+            tableView.rowHeight = UITableViewAutomaticDimension
+        }
     }
 
     // MARK: - Table view data source
@@ -29,13 +51,13 @@ class TwoLogListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let count = self.goalList.count
+        let count = self.goals.count
         return count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // goalList 배열 데이터에서 주어진 행에 맞는 데이터 꺼내기
-        let row = self.goalList[indexPath.row]
+        let row = self.goals[indexPath.row]
         // 재사용 큐로부터 프로토타입 셀 인스턴스 전달받기
         let cell = tableView.dequeueReusableCell(withIdentifier: "logListCell") as? TwoLogListCell
         // logCell 구현
@@ -59,11 +81,15 @@ class TwoLogListTableViewController: UITableViewController {
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        let data = self.goalList[indexPath.row]
-        if editingStyle == .delete {
-                self.goalList.remove(at: indexPath.row)
+        let data = self.goals[indexPath.row]
+        if let uid = uid {
+            let dataID = goalRef.child(uid).child(data.postID)
+            if editingStyle == .delete {
+                self.goals.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.tableView.reloadData()
+                dataID.removeValue()
+                self.tableView.reloadData()
+            }
         }
     }
 

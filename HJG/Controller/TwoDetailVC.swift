@@ -1,5 +1,5 @@
 //
-//  TwoDetailViewController.swift
+//  TwoDetailVC.swift
 //  HanJul
 //
 //  Created by Suzy Park on 2018. 5. 2..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TwoDetailViewController: UIViewController {
+class TwoDetailVC: UIViewController {
     
     // 데이터 저장 변수
     var param: Goal?
@@ -24,8 +24,8 @@ class TwoDetailViewController: UIViewController {
         self.contentLbl.text = param?.content
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd HH:mm:ss"
-        if let data = param, let goalDate = data.date {
-            self.timeLbl.text = formatter.string(from: goalDate)
+        if let data = param, let date = data.date {
+            self.timeLbl.text = formatter.string(from: date)
         }
     }
     

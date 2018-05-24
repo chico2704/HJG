@@ -15,17 +15,17 @@ class Goal {
     var content: String!
     var date: Date!
     
-    init(postID: String, goalData: [String:Any]) {
+    init(postID: String, dic: [String:Any]) {
         
         self.postID = postID
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss +zzzz"
         
-        if let title = goalData["title"] as? String,
-        let content = goalData["content"] as? String,
-        let dateStr = goalData["date"] as? String,
-        let date = formatter.date(from: dateStr) {
+        if let title = dic["title"] as? String,
+            let content = dic["content"] as? String,
+            let dateStr = dic["date"] as? String,
+            let date = formatter.date(from: dateStr) {
             
             self.title = title
             self.content = content

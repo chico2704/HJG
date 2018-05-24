@@ -5,10 +5,11 @@
 //  Created by Suzy Park on 2018. 4. 24..
 //  Copyright © 2018년 Suzy Park. All rights reserved.
 //
-import Foundation
+
 import UIKit
 import Firebase
 import FSCalendar
+import FirebaseDatabase
 
 class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
@@ -20,7 +21,11 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendarBackgroundView: UIViewX!
     @IBOutlet weak var calendarHeightConst: NSLayoutConstraint!
     
+    var goals = [Goal]()
     var dataArray = [Goal]()
+    
+    var goalRef: DatabaseReference!
+    let uid = Auth.auth().currentUser?.uid
 
     fileprivate lazy var yearFormatter: DateFormatter = {
         let yearFormatter = DateFormatter()
@@ -51,11 +56,24 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        goalRef = Database.database().reference()
         
-        //data read
-        
-        self.calendar.select(Date())
-        showTodayGoal()
+        if let uid = uid {
+            goalRef.child(uid).queryOrdered(byChild: "date").observe(DataEventType.value) { (snapshot) in
+                self.goals = []
+                if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                    for snap in snapshot {
+                        if let goalDict = snap.value as? [String : Any] {
+                            let goal = Goal(postID: snap.key, dic: goalDict)
+                            self.goals.insert(goal, at: 0)
+                        }
+                    }
+                }
+                self.calendar.select(Date())
+                self.calendar.reloadData()
+                self.showTodayGoal()
+            }
+        }
         self.view.addGestureRecognizer(self.scopeGesture)
         self.tableView.panGestureRecognizer.require(toFail: self.scopeGesture)
         self.tableView.backgroundColor = #colorLiteral(red: 0.949, green: 0.949, blue: 0.949, alpha: 1)
@@ -65,21 +83,19 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // 데이터 가져오기
         self.calendar.select(Date())
         showTodayGoal()
-        self.tableView.reloadData()
-        self.calendar.reloadData()
     }
     
     func showTodayGoal() {
         self.dataArray = []
-        // 데이터 가져오기
+        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let today = formatter.string(from: date)
-        for i in self.dataArray {
+        
+        for i in self.goals {
             guard let dates = i.date else { return }
             let strDates = formatter.string(from: dates)
             if strDates == today {
@@ -105,7 +121,7 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "popupSeg" {
-            if let vc = segue.destination as? TwoDetailViewController,
+            if let vc = segue.destination as? TwoDetailVC,
                 let indexPath = tableView.indexPathForSelectedRow {
                 vc.param = self.dataArray[indexPath.row]
                 
@@ -118,7 +134,6 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
 extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        let count = self.appDelegate.goalList.count
         let count = self.dataArray.count
         return count
     }
@@ -126,9 +141,8 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 배열 데이터에서 주어진 행에 맞는 데이터 꺼내기
         let row = self.dataArray[indexPath.row]
-        // 재사용 큐로부터 프로토타입 셀 인스턴스 전달받기
         let cell = tableView.dequeueReusableCell(withIdentifier: "logCell") as? TwoTableViewCell
-        // logCell 구현
+        
         cell?.titleLbl.text = row.title
         let timeFormatter = DateFormatter()
         timeFormatter.dateFormat = "HH:mm"
@@ -145,7 +159,7 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = self.dataArray[indexPath.row]
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalRead") as? TwoDetailViewController {
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalRead") as? TwoDetailVC {
         vc.param = row
         }
     }
@@ -156,11 +170,18 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            let data = self.dataArray[indexPath.row]
-            self.dataArray.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            let data = self.dataArray[indexPath.row]
+            if let uid = uid {
+                let dataID = goalRef.child(uid).child(data.postID)
+                if editingStyle == .delete {
+                    self.dataArray.remove(at: indexPath.row)
+                    self.goals.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    dataID.removeValue()
+                    self.tableView.reloadData()
+                }
+            }
         }
-        self.calendar.reloadData()
     }
 }
 
@@ -178,10 +199,12 @@ extension TwoUserLog: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelega
     
     // event marker
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let dateString = formatter.string(from: date)
-        for i in self.dataArray {
+        
+        for i in self.goals {
             guard let dates = i.date else { return 0 }
             let strDates = formatter.string(from: dates)
             if strDates == dateString {
@@ -196,7 +219,7 @@ extension TwoUserLog: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelega
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         let selectedDate = formatter.string(from: date)
-        for i in self.dataArray {
+        for i in self.goals {
             guard let dates = i.date else { return }
             let strDates = formatter.string(from: dates)
             if strDates == selectedDate {

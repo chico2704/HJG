@@ -129,7 +129,7 @@
         <!--Two DetailVC-->
         <scene sceneID="Qgb-M4-lDL">
             <objects>
-                <viewController storyboardIdentifier="GoalRead" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="1L7-cx-PHp" customClass="TwoDetailVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalRead" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="1L7-cx-PHp" customClass="TwoDetailVC" customModule="HJG" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="62F-ns-ktx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,7 +363,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZU-kc-z4q" userLabel="mainView" customClass="UIViewX" customModule="HJG" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="0.0" width="351" height="67.5"/>
+                                                    <rect key="frame" x="12" y="0.0" width="351" height="67"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-3L-1uC" userLabel="detailLabel">
                                                             <rect key="frame" x="79" y="40" width="250" height="14"/>
@@ -461,7 +461,7 @@
         <!--전체기록-->
         <scene sceneID="3kq-si-kWD">
             <objects>
-                <tableViewController title="전체기록" id="XwO-fd-AQs" customClass="TwoLogListTVC" sceneMemberID="viewController">
+                <tableViewController title="전체기록" id="XwO-fd-AQs" customClass="TwoLogListTVC" customModule="HJG" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="yO0-yb-R2l">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -583,13 +583,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNP-1j-x4x">
-                                                    <rect key="frame" x="20" y="11" width="276" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="59" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5d-LA-hBE">
-                                                    <rect key="frame" x="323" y="12" width="257" height="21"/>
+                                                    <rect key="frame" x="102" y="12" width="257" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="257" id="Ofc-a6-ZIO"/>
                                                     </constraints>
@@ -617,7 +617,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로그인 계정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ado-7s-xBk">
-                                                    <rect key="frame" x="20" y="11" width="79" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="79" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="dq2-06-73i"/>
                                                         <constraint firstAttribute="width" constant="79" id="hsf-A8-2vr"/>
@@ -627,7 +627,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksq-jA-4hW">
-                                                    <rect key="frame" x="107" y="11" width="478" height="22"/>
+                                                    <rect key="frame" x="103" y="11" width="257" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="hby-FC-wDN"/>
                                                     </constraints>
@@ -654,13 +654,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQD-0f-1qR">
-                                                    <rect key="frame" x="20" y="11" width="513" height="22"/>
+                                                    <rect key="frame" x="16" y="11" width="292" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6LK-ac-fWJ">
-                                                    <rect key="frame" x="533" y="6" width="51" height="31"/>
+                                                    <rect key="frame" x="308" y="6" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -687,7 +687,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFK-Cw-hh8">
-                                                    <rect key="frame" x="20" y="7" width="560" height="30"/>
+                                                    <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="로그아웃">
                                                         <color key="titleColor" red="0.92156862750000001" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

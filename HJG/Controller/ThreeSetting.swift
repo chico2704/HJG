@@ -46,11 +46,4 @@ class ThreeSetting: UITableViewController {
         alert.addAction(logOut)
         present(alert, animated: true, completion: nil)
     }
-    
-    @IBAction func syncInfoTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "동기화란?", message: "사용자 기기에 저장되는 목표기록을 서버에 \n저장하여 기기변경 또는 앱 재설치시 저장된 \n데이터를 불러올 수 있습니다. 동기화 전 \n인터넷 연결을 확인해주세요.", preferredStyle: .alert)
-        let done = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(done)
-        present(alert, animated: true, completion: nil)
-    }
 }
