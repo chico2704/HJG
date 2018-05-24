@@ -19,7 +19,6 @@
 		1C20C14720B6F87E0065C498 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14420B6F87E0065C498 /* UIButtonX.swift */; };
 		1C20C14920B70B600065C498 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C14820B70B600065C498 /* GoogleService-Info.plist */; };
 		1C20C14B20B712100065C498 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14A20B712100065C498 /* AlertVC.swift */; };
-		1C20C14D20B712CF0065C498 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14C20B712CF0065C498 /* Common.swift */; };
 		1CDD6C5A20B719FC004AC47F /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CDD6C5920B719FC004AC47F /* TabBar.storyboard */; };
 		1CDD6C5D20B71BBD004AC47F /* OneDesk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C5C20B71BBC004AC47F /* OneDesk.swift */; };
 		1CDD6C5F20B71BF3004AC47F /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C5E20B71BF3004AC47F /* FloatingActionButton.swift */; };
@@ -46,7 +45,6 @@
 		1C20C14420B6F87E0065C498 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 		1C20C14820B70B600065C498 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1C20C14A20B712100065C498 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
-		1C20C14C20B712CF0065C498 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		1CDD6C5920B719FC004AC47F /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		1CDD6C5C20B71BBC004AC47F /* OneDesk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneDesk.swift; sourceTree = "<group>"; };
 		1CDD6C5E20B71BF3004AC47F /* FloatingActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
@@ -104,7 +102,6 @@
 		1C20C12920B6F5980065C498 /* HJG */ = {
 			isa = PBXGroup;
 			children = (
-				1C20C14C20B712CF0065C498 /* Common.swift */,
 				1CDD6C5E20B71BF3004AC47F /* FloatingActionButton.swift */,
 				1CDD6C6020B71C01004AC47F /* Cell */,
 				1C20C13C20B6F7B90065C498 /* Controller */,
@@ -277,33 +274,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -356,7 +341,6 @@
 				1C20C14020B6F7F00065C498 /* SignUpVC.swift in Sources */,
 				1C20C12B20B6F5980065C498 /* AppDelegate.swift in Sources */,
 				1CDD6C5F20B71BF3004AC47F /* FloatingActionButton.swift in Sources */,
-				1C20C14D20B712CF0065C498 /* Common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,10 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -523,10 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
-import FirebaseFirestore
+import FirebaseDatabase
 
 class OneDesk: UIViewController {
     
@@ -20,13 +20,13 @@ class OneDesk: UIViewController {
     @IBOutlet weak var floatingActionButton: FloatingActionButton!
     
     let userDefaults = UserDefaults.standard
-    var goalRef: CollectionReference!
+    var goalRef: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         oneInitialViewSetting()
         goalLbl.text = userDefaults.string(forKey: "labelState")
-        goalRef = Firestore.firestore().collection(CollectionName.goal.rawValue)
+        goalRef = Database.database().reference()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,13 +108,7 @@ extension OneDesk {
                                                                    "content"    : content,
                                                                    "date"       : strDate ]
                             
-                                self.goalRef.document(uid).setData(dataToSave) { (error) in
-                                    if let error = error {
-                                        print("error:", error)
-                                    } else {
-                                        print("Data has been saved!")
-                                    }
-                                }
+                                self.goalRef.child(uid).childByAutoId().setValue(dataToSave) 
                             }
                             
                             // goalLbl 초기화 및 유저디폴트 기억

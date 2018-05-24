@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
 
 class SignUpVC: UIViewController {
 
@@ -16,11 +15,11 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var pwdTF: UITextField!
     
-    var userRef: CollectionReference!
+//    var userRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
+//        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
     }
 
     @IBAction func closedBtnTapped(_ sender: Any) {
@@ -47,15 +46,15 @@ class SignUpVC: UIViewController {
                 return
             }
             
-            guard let user = user else { return }
-            let dataToSave: [String : Any] = ["email" : email, "pwd" : pwd, "name" : name, "uid" : user.user.uid]
-            self.userRef.document(user.user.uid).setData(dataToSave) { (error) in
-                if let error = error {
-                    print("error:", error)
-                } else {
-                    print("Data has been saved!")
-                }
-            }
+//            guard let user = user else { return }
+//            let dataToSave: [String : Any] = ["email" : email, "pwd" : pwd, "name" : name, "uid" : user.user.uid]
+//            self.userRef.document(user.user.uid).setData(dataToSave) { (error) in
+//                if let error = error {
+//                    print("error:", error)
+//                } else {
+//                    print("Data has been saved!")
+//                }
+//            }
         }
         // go main tab bar
     }

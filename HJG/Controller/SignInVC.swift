@@ -8,12 +8,11 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
 import GoogleSignIn
 
 class SignInVC: UIViewController {
 
-    var userRef: CollectionReference!
+//    var goalRef:
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var pwdTF: UITextField!
@@ -22,7 +21,7 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSignUp()
-        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
+//        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
         // Do any additional setup after loading the view.
     }
 
@@ -106,19 +105,19 @@ extension SignInVC : GIDSignInDelegate, GIDSignInUIDelegate {
                 return
             }
             
-            // User is signed in
+//            // User is signed in
             guard let uid = user?.user.uid else { return }
-            let email = user?.user.email
-            let name = user?.user.displayName
-            let dataToSave: [String : Any] = ["email" : email ?? "", "name" : name ?? "", "uid" : uid]
-            
-            self.userRef.document(uid).setData(dataToSave) { (error) in
-                if let error = error {
-                    print("error:", error)
-                } else {
-                    print("Data has been saved!")
-                }
-            }
+//            let email = user?.user.email
+//            let name = user?.user.displayName
+//            let dataToSave: [String : Any] = ["email" : email ?? "", "name" : name ?? "", "uid" : uid]
+//
+//            self.userRef.document(uid).setData(dataToSave) { (error) in
+//                if let error = error {
+//                    print("error:", error)
+//                } else {
+//                    print("Data has been saved!")
+//                }
+//            }
             
             UserDefaults.standard.set(true, forKey: "googleLogIn")
             UserDefaults.standard.synchronize

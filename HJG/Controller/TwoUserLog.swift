@@ -7,6 +7,7 @@
 //
 import Foundation
 import UIKit
+import Firebase
 import FSCalendar
 
 class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
@@ -44,10 +45,15 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         calendar.dataSource = self
         calendar.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
+        
+        
+        //data read
+        
         self.calendar.select(Date())
         showTodayGoal()
         self.view.addGestureRecognizer(self.scopeGesture)

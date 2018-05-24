@@ -12,7 +12,7 @@ target 'HJG' do
    pod 'FirebaseUI/Auth'
    pod 'FirebaseUI/Google'
    pod 'Firebase/Core'
-   pod 'Firebase/Firestore'
+   pod 'Firebase/Database'
    pod 'FSCalendar'
    pod 'SVProgressHUD'
 
