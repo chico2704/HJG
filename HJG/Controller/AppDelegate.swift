@@ -25,12 +25,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if UserDefaults.standard.bool(forKey: "googleLogIn") {
             let uid = Auth.auth().currentUser?.uid
             if let uid = uid {
-                // go main tab bar
+                let storyboar = UIStoryboard.init(name: "TabBar", bundle: Bundle.main)
+                let tabBar = storyboar.instantiateViewController(withIdentifier: "TabBar")
+                window?.rootViewController = tabBar
             }
         } else if UserDefaults.standard.bool(forKey: "firebaseAccountLogIn") {
             let uid = Auth.auth().currentUser?.uid
             if let uid = uid {
-                // go main tab bar
+                let storyboar = UIStoryboard.init(name: "TabBar", bundle: Bundle.main)
+                let tabBar = storyboar.instantiateViewController(withIdentifier: "TabBar")
+                window?.rootViewController = tabBar
             }
         }
         return true

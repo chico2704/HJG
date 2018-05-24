@@ -11,4 +11,5 @@ import Firebase
 
 enum CollectionName: String {
     case user = "user"
+    case goal = "goal"
 }

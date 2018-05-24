@@ -44,6 +44,7 @@ PODS:
   - FirebaseUI/Google (5.0.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
+  - FSCalendar (2.7.9)
   - GoogleSignIn (4.1.2):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
@@ -92,6 +93,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.5.0)
+  - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -99,7 +101,9 @@ DEPENDENCIES:
   - Firebase/Firestore
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - FSCalendar
   - GoogleSignIn
+  - SVProgressHUD
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -111,6 +115,7 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseUI
+    - FSCalendar
     - GoogleSignIn
     - GoogleToolboxForMac
     - gRPC
@@ -122,6 +127,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SVProgressHUD
 
 SPEC CHECKSUMS:
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
@@ -132,6 +138,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: f686b8e83f3cf8bbc37db6e98e01029a14f01f55
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FirebaseUI: 0e9ab15e00073e421890c755b6f2bd757605601f
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 9362451032695e2dfb7bafcd3740e3a27939e4ff
@@ -143,7 +150,8 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 73ac541324ee45b4086c27c945c2cfb2affcfcf9
+PODFILE CHECKSUM: 7d69939ee9a903576192a05aea505c0b67726a49
 
 COCOAPODS: 1.5.0
