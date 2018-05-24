@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08F5556440E852ABFB182326 /* Pods_HJG.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9D68A57EE5D4C73E8FDA5B3 /* Pods_HJG.framework */; };
 		1C20C12B20B6F5980065C498 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C12A20B6F5980065C498 /* AppDelegate.swift */; };
 		1C20C13020B6F5980065C498 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C12E20B6F5980065C498 /* Main.storyboard */; };
 		1C20C13220B6F59A0065C498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C13120B6F59A0065C498 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		1C20C14520B6F87E0065C498 /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C14220B6F87E0065C498 /* SDMiSaeng.ttf */; };
 		1C20C14620B6F87E0065C498 /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14320B6F87E0065C498 /* UIViewX.swift */; };
 		1C20C14720B6F87E0065C498 /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C20C14420B6F87E0065C498 /* UIButtonX.swift */; };
+		1C20C14920B70B600065C498 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C20C14820B70B600065C498 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		1C20C14220B6F87E0065C498 /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
 		1C20C14320B6F87E0065C498 /* UIViewX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewX.swift; sourceTree = "<group>"; };
 		1C20C14420B6F87E0065C498 /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
+		1C20C14820B70B600065C498 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C576C6ED499B7FC443871BB6 /* Pods-HJG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.release.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.release.xcconfig"; sourceTree = "<group>"; };
+		C6D9392F0C1C3B0144260A7F /* Pods-HJG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.debug.xcconfig"; sourceTree = "<group>"; };
+		D9D68A57EE5D4C73E8FDA5B3 /* Pods_HJG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HJG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F5556440E852ABFB182326 /* Pods_HJG.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0708704605E6148CF8578852 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6D9392F0C1C3B0144260A7F /* Pods-HJG.debug.xcconfig */,
+				C576C6ED499B7FC443871BB6 /* Pods-HJG.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		1C20C11E20B6F5980065C498 = {
 			isa = PBXGroup;
 			children = (
 				1C20C12920B6F5980065C498 /* HJG */,
 				1C20C12820B6F5980065C498 /* Products */,
+				0708704605E6148CF8578852 /* Pods */,
+				8B56BD082D3FA6FDF48E7154 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +86,7 @@
 				1C20C13120B6F59A0065C498 /* Assets.xcassets */,
 				1C20C13320B6F59A0065C498 /* LaunchScreen.storyboard */,
 				1C20C13620B6F59A0065C498 /* Info.plist */,
+				1C20C14820B70B600065C498 /* GoogleService-Info.plist */,
 			);
 			path = HJG;
 			sourceTree = "<group>";
@@ -92,6 +111,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8B56BD082D3FA6FDF48E7154 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9D68A57EE5D4C73E8FDA5B3 /* Pods_HJG.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -99,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C20C13920B6F59A0065C498 /* Build configuration list for PBXNativeTarget "HJG" */;
 			buildPhases = (
+				5E4ED1EF2D41F8FDF5FC9585 /* [CP] Check Pods Manifest.lock */,
 				1C20C12320B6F5980065C498 /* Sources */,
 				1C20C12420B6F5980065C498 /* Frameworks */,
 				1C20C12520B6F5980065C498 /* Resources */,
+				9DE45E237107DEA90D57968C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,12 +181,54 @@
 			files = (
 				1C20C14520B6F87E0065C498 /* SDMiSaeng.ttf in Resources */,
 				1C20C13520B6F59A0065C498 /* LaunchScreen.storyboard in Resources */,
+				1C20C14920B70B600065C498 /* GoogleService-Info.plist in Resources */,
 				1C20C13220B6F59A0065C498 /* Assets.xcassets in Resources */,
 				1C20C13020B6F5980065C498 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E4ED1EF2D41F8FDF5FC9585 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HJG-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9DE45E237107DEA90D57968C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HJG/Pods-HJG-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C20C12320B6F5980065C498 /* Sources */ = {
@@ -310,15 +381,13 @@
 		};
 		1C20C13A20B6F59A0065C498 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D9392F0C1C3B0144260A7F /* Pods-HJG.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -328,15 +397,13 @@
 		};
 		1C20C13B20B6F59A0065C498 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C576C6ED499B7FC443871BB6 /* Pods-HJG.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
