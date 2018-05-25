@@ -29,7 +29,7 @@ class TwoLogListTVC: UITableViewController {
             
                 if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                     for snap in snapshot {
-                        if let goalDict = snap.value as? [String : AnyObject] {
+                        if let goalDict = snap.value as? [String : Any] {
                             let goal = Goal(postID: snap.key, dic: goalDict)
                          self.goals.insert(goal, at: 0)
                         }
@@ -56,11 +56,10 @@ class TwoLogListTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // goalList 배열 데이터에서 주어진 행에 맞는 데이터 꺼내기
+        
         let row = self.goals[indexPath.row]
-        // 재사용 큐로부터 프로토타입 셀 인스턴스 전달받기
         let cell = tableView.dequeueReusableCell(withIdentifier: "logListCell") as? TwoLogListCell
-        // logCell 구현
+
         cell?.titleLbl.text = row.title
         cell?.contentLbl.text = row.content
         cell?.indexLbl.text = "#" + String(tableView.numberOfRows(inSection: 0) - indexPath.row)
@@ -69,13 +68,11 @@ class TwoLogListTVC: UITableViewController {
         cell?.dateLbl.text = timeFormatter.string(from: row.date)
         cell?.titleLbl.numberOfLines = 0
         cell?.contentLbl.numberOfLines = 0
-        // Date 타입의 날짜를 포맷에 맞게 변경
         return cell!
     }
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 

@@ -5,7 +5,7 @@
 //  Created by Suzy Park on 2018. 4. 24..
 //  Copyright © 2018년 Suzy Park. All rights reserved.
 //
-import Foundation
+
 import UIKit
 import Firebase
 import FirebaseDatabase
@@ -97,23 +97,21 @@ extension OneDesk {
                             let date = String(describing: Date())
                             
                             if let uid = Auth.auth().currentUser?.uid,
-                            let title = self.goalLbl.text,
-                            let content = textField.text {
+                                let title = self.goalLbl.text,
+                                let content = textField.text {
 
-                                let dataToSave: [String : Any] = [ "title"      : title ,
-                                                                   "content"    : content,
-                                                                   "date"       : date ]
-                            
-                                self.goalRef.child(uid).childByAutoId().setValue(dataToSave) 
+                                    let dataToSave: [String : Any] = [ "title"      : title ,
+                                                                       "content"    : content,
+                                                                       "date"       : date ]
+                                    self.goalRef.child(uid).childByAutoId().setValue(dataToSave)
                             }
-                            
                             // goalLbl 초기화 및 유저디폴트 기억
                             self.goalLbl.text = ""
                             self.userDefaults.set(self.goalLbl.text, forKey: "labelState")
                             self.closeFloatingExpanding()
                             self.resetFloatingActionButton()
-                            // 탭2로 이동
-                            self.tabBarController?.selectedIndex = 1
+                            
+                            self.tabBarController?.selectedIndex = 1 // 탭2로 이동
                         }
                     }
                     alertVC.addAction(add)

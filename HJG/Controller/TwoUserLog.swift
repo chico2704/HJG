@@ -14,6 +14,12 @@ import SVProgressHUD
 
 class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
+    var goals = [Goal]()
+    var dataArray = [Goal]()
+    
+    var goalRef: DatabaseReference!
+    let uid = Auth.auth().currentUser?.uid
+    
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var calendarYear: UILabel!
@@ -22,12 +28,6 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var calendarBackgroundView: UIViewX!
     @IBOutlet weak var calendarHeightConst: NSLayoutConstraint!
     
-    var goals = [Goal]()
-    var dataArray = [Goal]()
-    
-    var goalRef: DatabaseReference!
-    let uid = Auth.auth().currentUser?.uid
-
     fileprivate lazy var yearFormatter: DateFormatter = {
         let yearFormatter = DateFormatter()
         yearFormatter.dateFormat = "yyyy"
@@ -51,7 +51,6 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         calendar.dataSource = self
         calendar.delegate = self
         tableView.dataSource = self
@@ -59,13 +58,13 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
         
         goalRef = Database.database().reference()
         
-        let transBackgroundView = UIView()
+        let transBackgroundView = UIView() // indicator's background setting
         transBackgroundView.frame = self.view.frame
         transBackgroundView.backgroundColor = UIColor.gray
         transBackgroundView.alpha = 0.6
         self.view.addSubview(transBackgroundView)
+        SVProgressHUD.show() // indicator
         
-        SVProgressHUD.show()
         if let uid = uid {
             goalRef.child(uid).queryOrdered(byChild: "date").observe(DataEventType.value) { (snapshot) in
                 self.goals = []
@@ -100,7 +99,6 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
     
     func showTodayGoal() {
         self.dataArray = []
-        
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -162,17 +160,9 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
         dateFormatter.dateFormat = "dd"
         cell?.dateLbl.text = dateFormatter.string(from: row.date)
         let monthFormatter = DateFormatter()
-        // "LLLL" = 월이름 풀네임
-        monthFormatter.dateFormat = "LLL"
+        monthFormatter.dateFormat = "LLL" // "LLLL" = 월이름 풀네임
         cell?.monthLbl.text = monthFormatter.string(from: row.date)
         return cell!
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = self.dataArray[indexPath.row]
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "GoalRead") as? TwoDetailVC {
-        vc.param = row
-        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

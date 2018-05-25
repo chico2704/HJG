@@ -11,7 +11,7 @@ import UIKit
 class TwoLogListCell: UITableViewCell {
 
     @IBOutlet weak var indexLbl: UILabel!
-    @IBOutlet weak var dateLbl: UILabel! // 등록 일
-    @IBOutlet weak var titleLbl: UILabel! // 목표 제목
-    @IBOutlet weak var contentLbl: UILabel! // 목표 내용
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var contentLbl: UILabel!
 }

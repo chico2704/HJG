@@ -11,9 +11,9 @@ import UIKit
 class TwoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainView: UIViewX!
-    @IBOutlet weak var dateLbl: UILabel! // 등록 일
-    @IBOutlet weak var monthLbl: UILabel! // 등록 월
-    @IBOutlet weak var titleLbl: UILabel! // 목표 제목
-    @IBOutlet weak var timeLbl: UILabel! // 등록 시간
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var monthLbl: UILabel!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel! 
 
 }

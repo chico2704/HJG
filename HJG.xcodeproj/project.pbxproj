@@ -29,6 +29,7 @@
 		1CDD6C6B20B71C4B004AC47F /* TwoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C6720B71C4B004AC47F /* TwoDetailVC.swift */; };
 		1CDD6C6C20B71C4B004AC47F /* TwoUserLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C6820B71C4B004AC47F /* TwoUserLog.swift */; };
 		1CDD6C6F20B71DC3004AC47F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C6E20B71DC3004AC47F /* Goal.swift */; };
+		1CDD6C7120B792F4004AC47F /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDD6C7020B792F4004AC47F /* FirebaseDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		1CDD6C6720B71C4B004AC47F /* TwoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoDetailVC.swift; sourceTree = "<group>"; };
 		1CDD6C6820B71C4B004AC47F /* TwoUserLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoUserLog.swift; sourceTree = "<group>"; };
 		1CDD6C6E20B71DC3004AC47F /* Goal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
+		1CDD6C7020B792F4004AC47F /* FirebaseDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		C576C6ED499B7FC443871BB6 /* Pods-HJG.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.release.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.release.xcconfig"; sourceTree = "<group>"; };
 		C6D9392F0C1C3B0144260A7F /* Pods-HJG.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HJG.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HJG/Pods-HJG.debug.xcconfig"; sourceTree = "<group>"; };
 		D9D68A57EE5D4C73E8FDA5B3 /* Pods_HJG.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HJG.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				1CDD6C6E20B71DC3004AC47F /* Goal.swift */,
+				1CDD6C7020B792F4004AC47F /* FirebaseDatabase.swift */,
 			);
 			path = DatabaseService;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				1C20C14B20B712100065C498 /* AlertVC.swift in Sources */,
 				1C20C14020B6F7F00065C498 /* SignUpVC.swift in Sources */,
 				1C20C12B20B6F5980065C498 /* AppDelegate.swift in Sources */,
+				1CDD6C7120B792F4004AC47F /* FirebaseDatabase.swift in Sources */,
 				1CDD6C5F20B71BF3004AC47F /* FloatingActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,7 +492,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -504,7 +511,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 98S7TU46JD;
 				INFOPLIST_FILE = HJG/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chico.HJG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

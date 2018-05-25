@@ -15,11 +15,9 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var pwdTF: UITextField!
     
-//    var userRef: CollectionReference!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-//        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
+        self.hideKeyboardWhenTappedAround()
     }
 
     @IBAction func closedBtnTapped(_ sender: Any) {
@@ -38,24 +36,18 @@ class SignUpVC: UIViewController {
                 AlertVC.showAlert(self, title: "Missing Info", message: "Please fill out all fields")
                 return
         }
-        
         // unless they are empty, we can move forward
         Auth.auth().createUser(withEmail: email, password: pwd) { (user, error) in
             guard error == nil else {
                 AlertVC.showAlert(self, title: "Error", message: error!.localizedDescription)
                 return
             }
+            UserDefaults.standard.set(true, forKey: "firebaseAccountLogIn")
+            UserDefaults.standard.synchronize()
             
-//            guard let user = user else { return }
-//            let dataToSave: [String : Any] = ["email" : email, "pwd" : pwd, "name" : name, "uid" : user.user.uid]
-//            self.userRef.document(user.user.uid).setData(dataToSave) { (error) in
-//                if let error = error {
-//                    print("error:", error)
-//                } else {
-//                    print("Data has been saved!")
-//                }
-//            }
+            let storyboard = UIStoryboard.init(name: "TabBar", bundle: Bundle.main)
+            let tabBar = storyboard.instantiateViewController(withIdentifier: "TabBar")
+            self.present(tabBar, animated: true, completion: nil) // go main tab bar
         }
-        // go main tab bar
     }
 }

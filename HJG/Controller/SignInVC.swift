@@ -10,9 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class SignInVC: UIViewController {
-
-//    var goalRef:
+class SignInVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var pwdTF: UITextField!
@@ -21,26 +19,16 @@ class SignInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSignUp()
-//        userRef = Firestore.firestore().collection(CollectionName.user.rawValue)
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        emailTF.delegate = self
+        pwdTF.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
-    */
-    
+
     @IBAction func signInBtnTapped(_ sender: Any) {
         guard let email = emailTF.text,
             email != "",
@@ -58,17 +46,21 @@ class SignInVC: UIViewController {
             }
             guard let user = user else { return }
             print(user.user.email ?? "MISSING EMAIL")
+            print(user.user.uid)
+            
             UserDefaults.standard.set(true, forKey: "firebasAccountLogIn")
             UserDefaults.standard.synchronize
-            // go to main tab bar
-            
+
+            let storyboard = UIStoryboard.init(name: "TabBar", bundle: Bundle.main)
+            let tabBar = storyboard.instantiateViewController(withIdentifier: "TabBar")
+            self.present(tabBar, animated: true, completion: nil) // go to main tabBar
         }
     }
     
     @IBAction func createNewAccountBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
         let signUpNVC = storyboard.instantiateViewController(withIdentifier: "SignUpNVC")
-        present(signUpNVC, animated: true, completion: nil)
+        present(signUpNVC, animated: true, completion: nil) // go to main tabBar
     }
     
     @IBAction func googleSignInBtnTapped(_ sender: Any) {
@@ -97,32 +89,32 @@ extension SignInVC : GIDSignInDelegate, GIDSignInUIDelegate {
         
         guard let authentication = user.authentication else { return }
         let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        print("log In", user)
+        print("log In: ", user)
         
         Auth.auth().signInAndRetrieveData(with: credential) { (user, error) in
             if let error = error {
                 print("Failed to create a Firebase User with Google account: ", error)
                 return
             }
-            
-//            // User is signed in
             guard let uid = user?.user.uid else { return }
-//            let email = user?.user.email
-//            let name = user?.user.displayName
-//            let dataToSave: [String : Any] = ["email" : email ?? "", "name" : name ?? "", "uid" : uid]
-//
-//            self.userRef.document(uid).setData(dataToSave) { (error) in
-//                if let error = error {
-//                    print("error:", error)
-//                } else {
-//                    print("Data has been saved!")
-//                }
-//            }
-            
             UserDefaults.standard.set(true, forKey: "googleLogIn")
             UserDefaults.standard.synchronize
-            print("Successfully logged into Firebase with Google", uid)
-            // go main tab bar
+            print("Successfully logged into Firebase with Google: ", uid)
+
+            let storyboard = UIStoryboard.init(name: "TabBar", bundle: Bundle.main)
+            let tabBar = storyboard.instantiateViewController(withIdentifier: "TabBar")
+            self.present(tabBar, animated: true, completion: nil) // go main tab bar
         }
+    }
+}
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
