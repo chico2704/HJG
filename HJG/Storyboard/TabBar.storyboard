@@ -363,7 +363,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZU-kc-z4q" userLabel="mainView" customClass="UIViewX" customModule="HJG" customModuleProvider="target">
-                                                    <rect key="frame" x="12" y="0.0" width="351" height="67"/>
+                                                    <rect key="frame" x="12" y="0.0" width="351" height="67.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fpj-3L-1uC" userLabel="detailLabel">
                                                             <rect key="frame" x="79" y="40" width="255" height="14"/>
