@@ -171,17 +171,24 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let data = self.dataArray[indexPath.row]
-            if let uid = uid {
-                let dataID = goalRef.child(uid).child(data.postID)
-                if editingStyle == .delete {
-                    self.dataArray.remove(at: indexPath.row)
-                    self.goals.remove(at: indexPath.row)
-                    self.tableView.deleteRows(at: [indexPath], with: .fade)
-                    dataID.removeValue()
-                    self.tableView.reloadData()
+            let alert = UIAlertController(title: "목표삭제", message: "선택한 목표를 삭제하시겠습니까?", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+            let done = UIAlertAction(title: "삭제", style: .destructive) { _ in
+                let data = self.dataArray[indexPath.row]
+                if let uid = Auth.auth().currentUser?.uid {
+                    let dataID = self.goalRef.child(uid).child(data.postID)
+                    if editingStyle == .delete {
+                        self.dataArray.remove(at: indexPath.row)
+                        self.goals.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .fade)
+                        dataID.removeValue()
+                        self.tableView.reloadData()
+                    }
                 }
             }
+            alert.addAction(cancel)
+            alert.addAction(done)
+            present(alert, animated: true, completion: nil)
         }
     }
 }
