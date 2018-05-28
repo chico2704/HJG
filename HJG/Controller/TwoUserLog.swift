@@ -133,7 +133,6 @@ class TwoUserLog: UIViewController, UIGestureRecognizerDelegate {
             if let vc = segue.destination as? TwoDetailVC,
                 let indexPath = tableView.indexPathForSelectedRow {
                 vc.param = self.dataArray[indexPath.row]
-                
             }
         }
     }
@@ -189,6 +188,12 @@ extension TwoUserLog: UITableViewDataSource, UITableViewDelegate {
             alert.addAction(cancel)
             alert.addAction(done)
             present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "popupSeg",sender: self)
         }
     }
 }
